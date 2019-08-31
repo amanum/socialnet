@@ -1,0 +1,22 @@
+.menuItem {
+  margin-bottom: 15px;
+  display: block;
+}
+
+.menuItem a {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  background: #575757;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.menuItem a:hover {
+  box-shadow: 0 0 5px 5px #272727;
+}
+
+.menuItem a:active {
+  box-shadow: 0 0 5px 3px #272727;
+}

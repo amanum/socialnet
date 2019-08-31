@@ -1,25 +1,11 @@
 import React from 'react';
+import Menu from "./Menu/Menu";
+import s from './Sidebar.module.css'
 
 const Sidebar = () => {
 	return (
-			  <div className="AppSidebar">
-				  <ul className="menu">
-					  <li className="menuItem">
-						  <a href="#">Profile</a>
-					  </li>
-					  <li className="menuItem">
-						  <a href="#">Messages</a>
-					  </li>
-					  <li className="menuItem">
-						  <a href="#">News</a>
-					  </li>
-					  <li className="menuItem">
-						  <a href="#">Music</a>
-					  </li>
-					  <li className="menuItem">
-						  <a href="#">Settings</a>
-					  </li>
-				  </ul>
+			  <div className={s.AppSidebar}>
+				  <Menu />
 			  </div>
 	);
 }

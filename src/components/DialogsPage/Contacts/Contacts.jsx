@@ -1,40 +1,21 @@
 import React from 'react';
-import './Contacts.module.css'
+import s from './Contacts.module.css'
+import Contact from "./Contact/Contact";
 
 const Contacts = () => {
 	return (
-			  <div className="AppDialogsLeft">
-				  <ul className="AppDialogsList">
-					  <li className="AppDialogsItem">
-						  <a href="#">Andrew</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Dmitry</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Sasha</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Sveta</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Valera</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Viktor</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">This is a list item</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Another list item</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">This is a list item</a>
-					  </li>
-					  <li className="AppDialogsItem">
-						  <a href="#">Yep, another list item</a>
-					  </li>
+			  <div className={s.AppDialogsLeft}>
+				  <ul className={s.AppDialogsList}>
+					  <Contact name="Andrew" />
+					  <Contact name="Dmitry" />
+					  <Contact name="Sasha" />
+					  <Contact name="Sveta" />
+					  <Contact name="Valera" />
+					  <Contact name="Viktor" />
+					  <Contact name="This is a list item" />
+					  <Contact name="Another list item" />
+					  <Contact name="This is a list item" />
+					  <Contact name="Yep, another list item" />
 				  </ul>
 			  </div>
 	

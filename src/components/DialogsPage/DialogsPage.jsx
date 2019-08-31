@@ -1,14 +1,15 @@
 import React from 'react';
 import Contacts from "./Contacts/Contacts";
 import Messages from "./Messages/Messages";
+import s from './DialogsPage.module.css'
 
 const DialogsPage  = () => {
 	return (
-			  <div className="AppDialogs p20">
-				  <h2 className="AppDialogsTitle">
+			  <div className={s.AppDialogs}>
+				  <h2 className={s.AppDialogsTitle}>
 					 Dialogs
 				  </h2>
-				  <div className="AppDialogsContent">
+				  <div className={s.AppDialogsContent}>
 					  <Contacts />
 					  <Messages />
 				  </div>
