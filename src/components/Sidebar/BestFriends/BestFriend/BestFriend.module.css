@@ -1,0 +1,29 @@
+.bestFriendsItem {
+	width: 45%;
+	display: block;
+	background: #575757;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.bestFriendsItem:hover {
+	box-shadow: 0 0 5px 5px #272727;
+	transform: scale(1.03);
+}
+
+.bestFriend {
+	display: block;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.bestFriendAvatar {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.bestFriendName {
+	display: block;
+	color: #fff;
+	text-align: center;
+}

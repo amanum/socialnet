@@ -4,7 +4,6 @@ import Messages from "./Messages/Messages";
 import s from './DialogsPage.module.css'
 
 const DialogsPage  = (props) => {
-	debugger
 	return (
 			  <div className={s.AppDialogs}>
 				  <h2 className={s.AppDialogsTitle}>
