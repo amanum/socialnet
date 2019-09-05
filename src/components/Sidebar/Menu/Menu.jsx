@@ -1,15 +1,25 @@
 import React from 'react';
-import MenuItem from "./MenuItem/MenuItem";
 import s from './Menu.module.css'
+import {NavLink} from "react-router-dom";
 
 const Menu = () => {
 	return (
 			  <ul className={s.menu}>
-				  <MenuItem menuItem="Profile"/>
-				  <MenuItem menuItem="Messages"/>
-				  <MenuItem menuItem="News"/>
-				  <MenuItem menuItem="Music"/>
-				  <MenuItem menuItem="Settings"/>
+				  <li className={s.menuItem}>
+					  <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
+				  </li>
+				  <li className={s.menuItem}>
+					  <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
+				  </li>
+				  <li className={s.menuItem}>
+					  <NavLink to="/">News</NavLink>
+				  </li>
+				  <li className={s.menuItem}>
+					  <NavLink to="/">Music</NavLink>
+				  </li>
+				  <li className={s.menuItem}>
+					  <NavLink to="/">Settings</NavLink>
+				  </li>
 			  </ul>
 	);
 }
