@@ -1,7 +1,13 @@
 import React from 'react';
 import s from './Post.module.css'
+import PropTypes from 'prop-types';
 
 const Post = (props) => {
+	
+	let onLikeBtnClick = () => {
+		props.addLike(props.likes, props.id)
+	}
+	
 	return (
 			  <div className={s.AppProfilePostsItem}>
 				  <div className={s.AppProfilePostsItemIcon}>
@@ -11,8 +17,19 @@ const Post = (props) => {
 				  <div className={s.AppProfilePostsItemMessage}>
 					  {props.text}
 				  </div>
+				  <div className={s.AppPrfilePostsItemLikes}>
+					  <span className={s.likesCount}>{props.likes}</span>
+					  <button onClick={onLikeBtnClick} className={s.likes}>
+						  <img src="https://img.icons8.com/cotton/2x/like--v1.png"
+								 alt=""/>
+					  </button>
+				  </div>
 			  </div>
 	);
-}
+};
+
+Post.propTypes = {
+	text: PropTypes.string
+};
 
 export default Post;

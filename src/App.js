@@ -12,7 +12,10 @@ function App(props) {
 				  <div className="App">
 					  <Header/>
 					  <Sidebar data={props.state.sidebar}/>
-					  <Route path="/profile" render={() => <ProfilePage data={props.state.profilePage}/>}/>
+					  <Route path="/profile" render={() => <ProfilePage data={props.state.profilePage}
+																						 addPost={props.addPost}
+																						 addLike={props.addLike}
+																						 updateNewPostText={props.updateNewPostText}/>}/>
 					  <Route path="/dialogs" render={() => <DialogsPage data={props.state.dialogsPage}/>}/>
 				  </div>
 			  </BrowserRouter>

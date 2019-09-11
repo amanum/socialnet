@@ -33,3 +33,14 @@
   border-radius: 5px 30px 30px 30px;
   flex-grow: 1;
 }
+
+.newMessage {
+  composes: AppProfilePostsInput from "../../ProfilePage/Posts/Posts.module.css"
+}
+
+.meSendBtn {
+  composes: btn from "../../ProfilePage/Posts/Posts.module.css";
+  margin-left: auto;
+  display: block;
+  margin-top: 10px;
+}

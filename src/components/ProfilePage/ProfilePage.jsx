@@ -10,7 +10,11 @@ const ProfilePage  = (props) => {
 					  <img src="https://free4kwallpapers.com/uploads/originals/2019/06/04/astronaut-x--wallpaper.jpg" alt=""/>
 				  </div>
 				  <User />
-				  <Posts postsData={props.data.postsData}/>
+				  <Posts postsData={props.data.postsData}
+							addPost={props.addPost}
+							addLike={props.addLike}
+							newPostText={props.data.newPostText}
+							updateNewPostText={props.updateNewPostText}/>
 			  </div>
 	);
 }

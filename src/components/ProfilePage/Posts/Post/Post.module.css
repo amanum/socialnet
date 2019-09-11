@@ -71,6 +71,7 @@
   background: #6F767B;
   padding: 10px;
   border-radius: 100px;
+  overflow: hidden;
 }
 
 .AppProfilePostsItemIcon {
@@ -90,4 +91,43 @@
   font-size: 20px;
   display: flex;
   align-items: center;
+}
+
+.AppPrfilePostsItemLikes {
+  background: #3c4043;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.likes {
+  width: 31px;
+  height: 28px;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0 auto 7px;
+  transition: all 0.3s ease;
+}
+
+.likes:hover {
+  transform: scale(1.12);
+}
+
+.likes:focus {
+  outline: none;
+}
+
+.likes img {
+  width: 50px;
+  margin-left: -9px;
+  margin-top: -13px;
+}
+
+.likesCount {
+  display: block;
+  text-align: center;
 }

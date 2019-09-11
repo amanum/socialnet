@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './BestFriend.module.css';
+import PropTypes from 'prop-types';
 
 const BestFriend = (props) => {
 	return (
@@ -11,6 +12,11 @@ const BestFriend = (props) => {
 				  </a>
 			  </li>
 	)
-}
+};
+
+BestFriend.propTypes = {
+	avatar: PropTypes.string,
+	name: PropTypes.string
+};
 
 export default BestFriend;
