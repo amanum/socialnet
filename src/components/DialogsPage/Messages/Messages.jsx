@@ -4,14 +4,17 @@ import Message from "./Message/Message";
 
 const Messages = (props) => {
 	
-	let messages = props.messagesData.map(m => <Message name={m.name} message={m.message}/>)
+	let messages = props.messagesData.map(m => <Message avatar={m.avatar} name={m.name} message={m.message}/>)
 	
 	let newMessageElement = React.createRef();
 	
 	let sendMessage = () => {
-		let text = newMessageElement.current.value
-		newMessageElement.current.value = ""
-		alert(text)
+		props.addMessage()
+	}
+	
+	let onMessageChange = () => {
+		let text = newMessageElement.current.value;
+		props.updateNewMessageText(text)
 	}
 	
 	return (
@@ -20,7 +23,7 @@ const Messages = (props) => {
 					  {messages}
 				  </ul>
 				  <div className={s.newMessage}>
-					  <textarea ref={newMessageElement} name="newMessageInput"></textarea>
+					  <textarea ref={newMessageElement} onChange={onMessageChange} value={props.newMessageText} name="newMessageInput"></textarea>
 					  <button onClick={sendMessage} className={s.meSendBtn}>Send</button>
 				  </div>
 			  </div>

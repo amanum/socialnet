@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter, Route} from "react-router-dom";
+import {updateNewMessageText} from "./redux/state";
 
 function App(props) {
 	return (
@@ -15,8 +16,11 @@ function App(props) {
 					  <Route path="/profile" render={() => <ProfilePage data={props.state.profilePage}
 																						 addPost={props.addPost}
 																						 addLike={props.addLike}
-																						 updateNewPostText={props.updateNewPostText}/>}/>
-					  <Route path="/dialogs" render={() => <DialogsPage data={props.state.dialogsPage}/>}/>
+																						 updateNewPostText={props.updateNewPostText}/>}
+					  />
+					  <Route path="/dialogs" render={() => <DialogsPage data={props.state.dialogsPage}
+																						 addMessage={props.addMessage}
+																						 updateNewMessageText={updateNewMessageText}/>}/>
 				  </div>
 			  </BrowserRouter>
 	);
