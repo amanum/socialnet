@@ -4,6 +4,7 @@ import s from './Sidebar.module.css'
 import BestFriends from "./BestFriends/BestFriends";
 
 const Sidebar = (props) => {
+	debugger
 	return (
 			  <div className={s.AppSidebar}>
 				  <Menu />

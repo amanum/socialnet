@@ -11,10 +11,7 @@ const ProfilePage  = (props) => {
 				  </div>
 				  <User />
 				  <Posts postsData={props.data.postsData}
-							addPost={props.addPost}
-							addLike={props.addLike}
-							newPostText={props.data.newPostText}
-							updateNewPostText={props.updateNewPostText}/>
+							dispatch={props.dispatch}/>
 			  </div>
 	);
 }

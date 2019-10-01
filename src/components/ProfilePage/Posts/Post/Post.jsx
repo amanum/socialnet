@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Post = (props) => {
 	
 	let onLikeBtnClick = () => {
-		props.addLike(props.likes, props.id)
+		props.dispatch({type: 'ADD-LIKE', likes: props.likes, id: props.id})
 	}
 	
 	return (
