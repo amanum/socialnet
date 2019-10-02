@@ -10,8 +10,8 @@ const DialogsPage  = (props) => {
 					 Dialogs
 				  </h2>
 				  <div className={s.AppDialogsContent}>
-					  <Contacts contactsData={props.data.contactsData} />
-					  <Messages messagesData={props.data.messagesData}
+					  <Contacts contactsData={props.dialogsPageState.contactsData} />
+					  <Messages messagesData={props.dialogsPageState.messagesData}
 									dispatch={props.dispatch}/>/>
 				  </div>
 			  </div>

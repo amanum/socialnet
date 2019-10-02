@@ -7,18 +7,16 @@ import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter, Route} from "react-router-dom";
 
 function App(props) {
-	return (
-			  <BrowserRouter>
-				  <div className="App">
-					  <Header/>
-					  <Sidebar data={props.state.sidebar}/>
-					  <Route path="/profile" render={() => <ProfilePage data={props.state.profilePage}
-																						 dispatch={props.dispatch}/>}/>
-					  <Route path="/dialogs" render={() => <DialogsPage data={props.state.dialogsPage}
-																						 dispatch={props.dispatch}/>}/>
-				  </div>
-			  </BrowserRouter>
-	);
+    return (
+        <div className="App">
+            <Header/>
+            <Sidebar sidebarState={props.state.sidebar}/>
+            <Route path="/profile" render={() => <ProfilePage profilePageState={props.state.profilePage}
+                                                              dispatch={props.dispatch}/>}/>
+            <Route path="/dialogs" render={() => <DialogsPage dialogsPageState={props.state.dialogsPage}
+                                                              dispatch={props.dispatch}/>}/>
+        </div>
+    );
 }
 
 export default App;
