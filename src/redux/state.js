@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
+
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const ADD_MESSAGE = 'ADD-MESSAGE'
@@ -86,53 +90,14 @@ let store = {
 	},
 	
 	dispatch(action) {
-		switch (action.type) {
-			case ADD_POST :
-				let newPost = {
-					id: this._state.profilePage.postsData.length + 1,
-					text: this._state.profilePage.newPostText,
-					likes: 0
-				}
-				this._state.profilePage.postsData.unshift(newPost)
-				this._state.profilePage.newPostText = ""
-				this._callSubscriber(this._state)
-				break;
 
-			case UPDATE_NEW_POST_TEXT :
-				this._state.profilePage.newPostText = action.newText
-				this._callSubscriber(this._state)
-				break;
+		this._state.profilePage = profileReducer(this._state.profilePage, action)
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+		this._state.sidebar = sidebarReducer(this._state.sidebar, action)
 
-			case ADD_MESSAGE :
-				let newMessage = {
-					id: this._state.dialogsPage.messagesData.length + 1,
-					name: "Me",
-					message: this._state.dialogsPage.newMessageText,
-					avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJbsBSPWYZK6exsVL86MJuEIOxkWAdAYdxiOCjBCDXq3u2f9RkAw"
-				}
-				this._state.dialogsPage.messagesData.push(newMessage)
-				this._state.dialogsPage.newMessageText = ""
-				this._callSubscriber(this._state)
-				break;
-
-			case UPDATE_NEW_MESSAGE_TEXT:
-				this._state.dialogsPage.newMessageText = action.newText
-				this._callSubscriber(this._state)
-				break;
-			case ADD_LIKE:
-				let newLikesCount = action.likes + 1;
-				this._state.profilePage.postsData.find(p => p.id === action.id).likes = newLikesCount;
-				this._callSubscriber(this._state)
-				break;
-		}
+		this._callSubscriber(this._state)
 	}
 }
-
-export const onAddPostBtnClickActionCreator = () => ({type: ADD_POST})
-export const onPostChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
-export const onLikeBtnClickActionCreator = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, id: id})
 
 export default store;
 window.store = store;
