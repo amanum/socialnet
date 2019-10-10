@@ -1,18 +1,18 @@
 import React from 'react';
 import Contacts from "./Contacts/Contacts";
-import Messages from "./Messages/Messages";
 import s from './DialogsPage.module.css'
+import MessagesContainer from "./Messages/MessagesContainer";
 
 const DialogsPage  = (props) => {
+	let state = props.store.getState();
 	return (
 			  <div className={s.AppDialogs}>
 				  <h2 className={s.AppDialogsTitle}>
 					 Dialogs
 				  </h2>
 				  <div className={s.AppDialogsContent}>
-					  <Contacts contactsData={props.dialogsPageState.contactsData} />
-					  <Messages messagesData={props.dialogsPageState.messagesData}
-									dispatch={props.dispatch}/>/>
+					  <Contacts contactsData={state.dialogsPage.contactsData} />
+					  <MessagesContainer store={props.store}/>
 				  </div>
 			  </div>
 	);

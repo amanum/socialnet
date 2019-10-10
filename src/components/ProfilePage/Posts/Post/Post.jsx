@@ -1,13 +1,12 @@
 import React from 'react';
 import s from './Post.module.css'
 import PropTypes from 'prop-types';
-import {onLikeBtnClickActionCreator} from "../../../../redux/profileReducer";
 
 const Post = (props) => {
 	let likesCount = props.likes
 	let id = props.id
 	let onLikeBtnClick = () => {
-		props.dispatch(onLikeBtnClickActionCreator(likesCount, id))
+		props.onLikeBtnClick(likesCount, id)
 	}
 	
 	return (

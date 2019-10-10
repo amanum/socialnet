@@ -3,7 +3,7 @@ import s from './Contacts.module.css'
 import Contact from "./Contact/Contact";
 
 const Contacts = (props) => {
-
+	
 	let contacts = props.contactsData.map(c => <Contact name={c.name} id={c.id} />);
 	
 	return (

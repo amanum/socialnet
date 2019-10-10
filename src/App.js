@@ -11,10 +11,8 @@ function App(props) {
         <div className="App">
             <Header/>
             <Sidebar sidebarState={props.state.sidebar}/>
-            <Route path="/profile" render={() => <ProfilePage profilePageState={props.state.profilePage}
-                                                              dispatch={props.dispatch}/>}/>
-            <Route path="/dialogs" render={() => <DialogsPage dialogsPageState={props.state.dialogsPage}
-                                                              dispatch={props.dispatch}/>}/>
+            <Route path="/profile" render={() => <ProfilePage store={props.store}/>}/>
+            <Route path="/dialogs" render={() => <DialogsPage store={props.store}/>}/>
         </div>
     );
 }
