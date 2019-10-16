@@ -1,13 +1,13 @@
 import React from 'react';
 import Menu from "./Menu/Menu";
 import s from './Sidebar.module.css'
-import BestFriends from "./BestFriends/BestFriends";
+import BestFriendsContainer from "./BestFriends/BestFriend/BestFriendsContainer";
 
 const Sidebar = (props) => {
 	return (
 			  <div className={s.AppSidebar}>
 				  <Menu />
-				  <BestFriends bestFriendsData={props.sidebarState.bestFriendsData}/>
+				  <BestFriendsContainer />
 			  </div>
 	);
 }

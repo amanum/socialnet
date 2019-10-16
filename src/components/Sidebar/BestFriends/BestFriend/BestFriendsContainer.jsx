@@ -1,7 +1,6 @@
 import React from 'react';
-import {onAddPostBtnClickActionCreator, onPostChangeActionCreator} from "../../../redux/profileReducer";
-import Posts from "./Posts";
 import {connect} from "react-redux";
+import BestFriends from "../BestFriends";
 
 // const PostsContainer = (props) => {
 // 	let state = props.store.getState();
@@ -27,23 +26,16 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
 	return {
-		postsData: state.profilePage.postsData,
-		newPostText: state.profilePage.newPostText
+		bestFriendsData: state.sidebar.bestFriendsData
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		updateNewPostText: (text) => {
-			let action = onPostChangeActionCreator(text)
-			dispatch(action)
-		},
-		addPost: () => {
-			dispatch(onAddPostBtnClickActionCreator())
-		}
+
 	}
 }
 
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
+const BestFriendsContainer = connect(mapStateToProps, mapDispatchToProps)(BestFriends)
 
-export default PostsContainer;
+export default BestFriendsContainer;
