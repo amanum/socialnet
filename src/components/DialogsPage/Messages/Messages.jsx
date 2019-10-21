@@ -4,7 +4,7 @@ import Message from "./Message/Message";
 
 const Messages = (props) => {
 
-	let messages = props.messagesData.map(m => <Message avatar={m.avatar} name={m.name} message={m.message}/>)
+	let messages = props.messagesData.map(m => <Message key={m.id} avatar={m.avatar} name={m.name} message={m.message}/>)
 	
 	let newMessageElement = React.createRef();
 	
