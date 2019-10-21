@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './Posts.module.css'
-import PostContainer from "./Post/PostContainer";
+import PostContainer from './Post/PostContainer'
 
 const Posts = (props) => {
-	debugger
-	let posts = props.postsData.map(p => <PostContainer text={p.text} likes={p.likes} id={p.id} store={props.store} />)
+
+	let posts = props.postsData.map(p => <PostContainer key={p.id} text={p.text} likes={p.likes} id={p.id} addLike={props.addLike} />)
 
 	let newPostElement = React.createRef();
 	

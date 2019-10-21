@@ -4,7 +4,7 @@ import Contact from "./Contact/Contact";
 
 const Contacts = (props) => {
 
-	let contacts = props.contactsData.map(c => <Contact name={c.name} id={c.id} />);
+	let contacts = props.contactsData.map(c => <Contact key={c.id} name={c.name} id={c.id} />);
 	
 	return (
 			  <div className={s.AppDialogsLeft}>

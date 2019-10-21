@@ -44,6 +44,7 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case ADD_MESSAGE :
             let newMessage = {
@@ -52,13 +53,17 @@ const dialogsReducer = (state = initialState, action) => {
                 message: state.newMessageText,
                 avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJbsBSPWYZK6exsVL86MJuEIOxkWAdAYdxiOCjBCDXq3u2f9RkAw"
             }
-            state.messagesData.push(newMessage)
-            state.newMessageText = ""
-            return state;
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage],
+                newMessageText: ''
+            }
 
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newText
-            return state;
+            return {
+                ...state,
+                newMessageText: action.newText
+            }
 
         default:
             return state;

@@ -1,5 +1,9 @@
 import React from 'react';
-import {onAddPostBtnClickActionCreator, onPostChangeActionCreator} from "../../../redux/profileReducer";
+import {
+	onAddPostBtnClickActionCreator,
+	onLikeBtnClickActionCreator,
+	onPostChangeActionCreator
+} from "../../../redux/profileReducer";
 import Posts from "./Posts";
 import {connect} from "react-redux";
 
@@ -40,6 +44,11 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		addPost: () => {
 			dispatch(onAddPostBtnClickActionCreator())
+		},
+		addLike: (likesCount, id) => {
+
+			let action = onLikeBtnClickActionCreator(likesCount, id)
+			dispatch(action)
 		}
 	}
 }

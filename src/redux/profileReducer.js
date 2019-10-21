@@ -12,32 +12,39 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST :
+        case ADD_POST : {
             let newPost = {
                 id: state.postsData.length + 1,
                 text: state.newPostText,
                 likes: 0
-            }
-            state.postsData.unshift(newPost)
-            state.newPostText = ""
-            return state;
+            };
+            return {
+                ...state,
+                postsData: [newPost, ...state.postsData],
+                newPostText: ''
+            };
+        }
+        case UPDATE_NEW_POST_TEXT : {
+            return {
+                ...state,
+                newPostText: action.newText
+            };
+        }
+        case ADD_LIKE: {
 
-        case UPDATE_NEW_POST_TEXT :
-            state.newPostText = action.newText
-            return state;
-
-        case ADD_LIKE:
+            let stateCopy = {...state}
             let newLikesCount = action.likes + 1;
-            state.postsData.find(p => p.id === action.id).likes = newLikesCount;
-            return state;
-
+            stateCopy.postsData = [...state.postsData]
+            stateCopy.postsData.find(   p => p.id === action.id).likes = newLikesCount;
+            return stateCopy;
+        }
         default:
             return state;
     }
 }
 
-export const onAddPostBtnClickActionCreator = () => ({type: ADD_POST})
-export const onPostChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const onLikeBtnClickActionCreator = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, id: id})
+export const onAddPostBtnClickActionCreator = () => ({type: ADD_POST});
+export const onPostChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const onLikeBtnClickActionCreator = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, id: id});
 
 export default profileReducer

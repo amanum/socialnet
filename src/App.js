@@ -6,7 +6,7 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {Route} from "react-router-dom";
 
-function App(props) {
+function App() {
     return (
         <div className="App">
             <Header/>
