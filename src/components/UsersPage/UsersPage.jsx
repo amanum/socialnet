@@ -1,43 +1,50 @@
 import React from 'react'
 import styles from './UserPage.module.css'
+import * as axios from 'axios'
+import userPhoto from '../../img/images.png'
 
 const UsersPage = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 0,
-                photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
-                followed: true,
-                fullName: "Dmitry",
-                status: 'I am a boss',
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-            {
-                id: 1,
-                photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
-                followed: true,
-                fullName: "Aman",
-                status: 'I am a boss too',
-                location: {city: 'Astana', country: 'Kazakhstan'}
-            },
-            {
-                id: 2,
-                photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
-                followed: false,
-                fullName: "Kirill",
-                status: 'I am mad',
-                location: {city: 'Moscow', country: 'Russia'}
-            },
-            {
-                id: 3,
-                photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
-                followed: false,
-                fullName: "Yuliya",
-                status: 'What a wonderful day',
-                location: {city: 'Kiev', country: 'Ukraine'}
-            },
-        ])
+
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            props.setUsers(response.data.items)
+        })
+
+        // props.setUsers([
+        //     {
+        //         id: 0,
+        //         photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
+        //         followed: true,
+        //         fullName: "Dmitry",
+        //         status: 'I am a boss',
+        //         location: {city: 'Minsk', country: 'Belarus'}
+        //     },
+        //     {
+        //         id: 1,
+        //         photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
+        //         followed: true,
+        //         fullName: "Aman",
+        //         status: 'I am a boss too',
+        //         location: {city: 'Astana', country: 'Kazakhstan'}
+        //     },
+        //     {
+        //         id: 2,
+        //         photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
+        //         followed: false,
+        //         fullName: "Kirill",
+        //         status: 'I am mad',
+        //         location: {city: 'Moscow', country: 'Russia'}
+        //     },
+        //     {
+        //         id: 3,
+        //         photoUrl: 'https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg',
+        //         followed: false,
+        //         fullName: "Yuliya",
+        //         status: 'What a wonderful day',
+        //         location: {city: 'Kiev', country: 'Ukraine'}
+        //     },
+        // ])
     }
 
     return (
@@ -46,7 +53,7 @@ const UsersPage = (props) => {
                 props.users.map(u => <div key={u.id}>
                     <span>
                         <div>
-                            <img src={u.photoUrl} className={styles.usersPhoto} alt=""/>
+                            <img src={u.photos.small != null? u.photos.small : userPhoto} className={styles.usersPhoto} alt=""/>
                         </div>
                         <div>
                             {u.followed
@@ -62,7 +69,7 @@ const UsersPage = (props) => {
                     <span>
                         <span>
                             <div>
-                                {u.fullName}
+                                {u.name}
                             </div>
                             <div>
                                 {u.status}
@@ -70,10 +77,10 @@ const UsersPage = (props) => {
                         </span>
                         <span>
                             <div>
-                                {u.location.country}
+                                {'u.location.country'}
                             </div>
                             <div>
-                                {u.location.city}
+                                {'u.location.city'}
                             </div>
                         </span>
                     </span>
