@@ -1,3 +1,59 @@
-.usersPhoto {
+.UsersPage {
+    padding: 20px;
+    width: 80%;
+}
+.UsersPagePaggination {
+    display: flex;
+    margin-bottom: 20px;
+}
+.UsersPagePagginationItem {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #3E4043;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.sellectedPage {
+    font-weight: bold;
+    background: #3E4043;
+    border: 1px solid #272727;
+}
+.userItem {
+    padding: 20px;
+    background: #3D4043;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+.usersPhotoWrapper {
     width: 100px;
+    height: 100px;
+}
+.usersPhoto {
+    width: 100%;
+}
+.userLeftBtnWrapper {
+    width: 100%;
+}
+.userLeftBtnWrapper button {
+    background: #272727;
+    color: #ffffff;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.userName {
+    flex-grow: 1;
+    padding: 0 50px;
+}
+.userRight {
+    width: 20%;
 }
