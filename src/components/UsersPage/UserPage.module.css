@@ -5,10 +5,12 @@
 .UsersPagePaggination {
     display: flex;
     margin-bottom: 20px;
+    overflow-y: scroll;
 }
 .UsersPagePagginationItem {
     width: 20px;
     height: 20px;
+    min-width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
