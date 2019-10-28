@@ -1,5 +1,4 @@
 import React from 'react';
-import Contacts from "./Contacts/Contacts";
 import s from './DialogsPage.module.css'
 import MessagesContainer from "./Messages/MessagesContainer";
 import ContactsContainer from "./Contacts/ContactsContainer";

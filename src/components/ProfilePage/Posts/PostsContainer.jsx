@@ -1,8 +1,7 @@
 import React from 'react';
 import {
-	onAddPostBtnClickActionCreator,
-	onLikeBtnClickActionCreator,
-	onPostChangeActionCreator
+	addLike,
+	addPost, updateNewPostText
 } from "../../../redux/profileReducer";
 import Posts from "./Posts";
 import {connect} from "react-redux";
@@ -36,23 +35,12 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		updateNewPostText: (text) => {
-			let action = onPostChangeActionCreator(text)
-			dispatch(action)
-		},
-		addPost: () => {
-			dispatch(onAddPostBtnClickActionCreator())
-		},
-		addLike: (likesCount, id) => {
-
-			let action = onLikeBtnClickActionCreator(likesCount, id)
-			dispatch(action)
-		}
-	}
+let dispatchObj = {
+	updateNewPostText,
+	addPost,
+	addLike
 }
 
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
+const PostsContainer = connect(mapStateToProps, dispatchObj)(Posts)
 
 export default PostsContainer;

@@ -43,8 +43,8 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const onAddPostBtnClickActionCreator = () => ({type: ADD_POST});
-export const onPostChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
-export const onLikeBtnClickActionCreator = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, id: id});
+export const addPost = () => ({type: ADD_POST});
+export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const addLike = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, id: id});
 
 export default profileReducer
