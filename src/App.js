@@ -12,7 +12,7 @@ function App() {
         <div className="App">
             <Header/>
             <Sidebar/>
-            <Route path="/profile" render={() => <ProfilePageContainer/>}/>
+            <Route path="/profile/:userId?" render={() => <ProfilePageContainer/>}/>
             <Route path="/dialogs" render={() => <DialogsPage/>}/>
             <Route path="/users" render={() => <UsersPageContainer/>}/>
         </div>
