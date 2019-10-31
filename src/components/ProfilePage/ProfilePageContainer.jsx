@@ -3,7 +3,7 @@ import s from './ProfilePage.module.css'
 import ProfilePage from "./ProfilePage";
 import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profileReducer";
-import {withRouter} from "react-router-dom";
+import {Redirect, withRouter} from "react-router-dom";
 
 class ProfilePageContainer extends Component {
 
@@ -14,6 +14,11 @@ class ProfilePageContainer extends Component {
 	}
 
 	render() {
+
+		if (!this.props.isAuth) {
+			return <Redirect to={'/login'}/>
+		}
+
 		return (
 			<div className={s.AppProfileContainer}>
 				<ProfilePage {...this.props} profile={this.props.profile}/>
@@ -23,7 +28,8 @@ class ProfilePageContainer extends Component {
 }
 
 let mapStateToProps = (state) => ({
-	profile: state.profilePage.profile
+	profile: state.profilePage.profile,
+	isAuth: state.auth.isAuth,
 })
 
 let dispatchObj = {

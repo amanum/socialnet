@@ -6,31 +6,11 @@ import {
 import Messages from "./Messages";
 import {connect} from "react-redux";
 
-// const MessagesContainer = (props) => {
-//
-// 	let state = props.store.getState();
-//
-// 	let sendMessage = () => {
-// 		props.store.dispatch(addMessageActionCreator())
-// 	}
-//
-// 	let onMessageChange = (text) => {
-// 		props.store.dispatch(updateNewMessageTextActionCreator(text))
-// 	}
-//
-// 	return (
-// 			  <Messages messagesData={state.dialogsPage.messagesData}
-// 						addMessage={sendMessage}
-// 						onMessageChange={onMessageChange}
-// 						newMessageText={state.dialogsPage.newMessageText}
-// 			  />
-// 	);
-// }
-
 let mapStateToProps = (state) => {
 	return {
 		messagesData: state.dialogsPage.messagesData,
-		newMessageText: state.dialogsPage.newMessageText
+		newMessageText: state.dialogsPage.newMessageText,
+		isAuth: state.auth.isAuth
 	}
 }
 
