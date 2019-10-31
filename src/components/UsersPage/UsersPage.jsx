@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./UserPage.module.css";
 import userPhoto from "../../img/images.png";
 import {NavLink} from "react-router-dom";
-import {userAPI} from "../../api/api";
 
 let UsersPage = (props) => {
 

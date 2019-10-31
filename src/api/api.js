@@ -21,12 +21,15 @@ export const userAPI = {
         return axiosInstance.post(`follow/${userId}`)
             .then(response => response.data)
     },
-    authMe () {
-        return axiosInstance.get(`auth/me`)
-            .then(response => response.data)
-    },
     watchProfile (userId) {
         return axiosInstance.get(`profile/${userId}`)
             .then(response => response.data)
     }
+}
+
+export const authAPI = {
+    me () {
+        return axiosInstance.get(`auth/me`)
+            .then(response => response.data)
+    },
 }

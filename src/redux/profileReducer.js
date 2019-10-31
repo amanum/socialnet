@@ -1,3 +1,5 @@
+import {userAPI} from "../api/api";
+
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const ADD_LIKE = 'ADD-LIKE'
@@ -52,5 +54,12 @@ export const addPost = () => ({type: ADD_POST});
 export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const addLike = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, id: id});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+
+export const getUserProfile = (userId) => (dispatch) => {
+    userAPI.watchProfile(userId)
+        .then(data => {
+            dispatch(setUserProfile(data))
+        })
+}
 
 export default profileReducer
