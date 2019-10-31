@@ -52,6 +52,10 @@
     cursor: pointer;
     margin-top: 10px;
 }
+.userLeftBtnWrapper button:disabled {
+    background: #575757;
+    cursor: wait;
+}
 .userName {
     flex-grow: 1;
     padding: 0 50px;

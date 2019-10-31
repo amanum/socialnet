@@ -4,14 +4,14 @@ import ProfilePage from "./ProfilePage";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/profileReducer";
 import {withRouter} from "react-router-dom";
-import {watchProfile} from "../../api/api";
+import {userAPI} from "../../api/api";
 
 class ProfilePageContainer extends Component {
 
 	componentDidMount() {
 		let userId = this.props.match.params.userId;
 		if (!userId) {userId = 2}
-		watchProfile(userId)
+		userAPI.watchProfile(userId)
 			.then(data => {
 				this.props.setUserProfile(data)
 			})

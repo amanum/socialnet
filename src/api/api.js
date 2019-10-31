@@ -8,27 +8,25 @@ const axiosInstance = axios.create({
     }
 })
 
-export const getUsers = (currentPage = 1, pageSize = 10) => {
-    return axiosInstance.get(`users?page=${currentPage}&count=${pageSize}`)
-        .then(response => response.data)
-}
-
-export const unfollowFriend = (userId) => {
-    return axiosInstance.delete(`follow/${userId}`)
-        .then(response => response.data)
-}
-
-export const followFriend = (userId) => {
-    return axiosInstance.post(`follow/${userId}`)
-        .then(response => response.data)
-}
-
-export const authMe = () => {
-    return axiosInstance.get(`auth/me`)
-        .then(response => response.data)
-}
-
-export const watchProfile = (userId) => {
-    return axiosInstance.get(`profile/${userId}`)
-        .then(response => response.data)
+export const userAPI = {
+    getUsers (currentPage = 1, pageSize = 10) {
+        return axiosInstance.get(`users?page=${currentPage}&count=${pageSize}`)
+            .then(response => response.data)
+    },
+    unfollowFriend (userId) {
+        return axiosInstance.delete(`follow/${userId}`)
+            .then(response => response.data)
+    },
+    followFriend (userId) {
+        return axiosInstance.post(`follow/${userId}`)
+            .then(response => response.data)
+    },
+    authMe () {
+        return axiosInstance.get(`auth/me`)
+            .then(response => response.data)
+    },
+    watchProfile (userId) {
+        return axiosInstance.get(`profile/${userId}`)
+            .then(response => response.data)
+    }
 }
