@@ -7,6 +7,8 @@ import {
 } from '../../redux/usersReducer';
 import UsersPage from './UsersPage';
 import Preloader from "../common/Preloader/Preloader";
+import {compose} from "redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersPageContainer extends React.Component {
 
@@ -57,4 +59,7 @@ let dispatchObj = {
     getUsers
 }
 
-export default connect(mapStateToProps, dispatchObj)(UsersPageContainer)
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, dispatchObj)
+)(UsersPageContainer)
