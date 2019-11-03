@@ -36,5 +36,5 @@ let dispatchObj = {
 export default compose(
 	connect(mapStateToProps, dispatchObj),
 	withRouter,
-	withAuthRedirect
+    // withAuthRedirect
 )(ProfilePageContainer);
