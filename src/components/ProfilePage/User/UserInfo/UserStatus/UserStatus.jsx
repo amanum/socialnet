@@ -7,6 +7,14 @@ class UserStatus extends Component {
         status: this.props.status
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
     activateEditMode = () => {
         this.setState({
             editMode: true
