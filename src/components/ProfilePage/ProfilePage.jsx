@@ -9,7 +9,7 @@ const ProfilePage  = (props) => {
 				  <div className={s.AppProfileImg}>
 					  <img src="https://free4kwallpapers.com/uploads/originals/2019/06/04/astronaut-x--wallpaper.jpg" alt=""/>
 				  </div>
-				  <User profile={props.profile}/>
+				  <User profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus}/>
 				  <PostsContainer/>
 			  </div>
 	);

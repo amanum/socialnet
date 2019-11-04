@@ -20,7 +20,7 @@ const UserInfo = (props) => {
             <div className={s.AppProfileUserInfoItem}>
                 WebSite: https://google.com
             </div>
-            <UserStatus status={'hello'}/>
+            <UserStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
         </div>
     );
 }

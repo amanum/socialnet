@@ -22,8 +22,7 @@ export const userAPI = {
             .then(response => response.data)
     },
     watchProfile (userId) {
-        return axiosInstance.get(`profile/${userId}`)
-            .then(response => response.data)
+        return profileAPI.getUserProfile(userId)
     }
 }
 
@@ -32,4 +31,19 @@ export const authAPI = {
         return axiosInstance.get(`auth/me`)
             .then(response => response.data)
     },
+}
+
+export const profileAPI = {
+    getUserProfile(userId) {
+        return axiosInstance.get(`profile/${userId}`)
+            .then(response => response.data)
+    },
+    getUserStatus(userId) {
+        return axiosInstance.get(`profile/status/${userId}`)
+            .then(response => response.data)
+    },
+    updateUserStatus(status) {
+        return axiosInstance.put(`profile/status/`, {status: status})
+            .then(response => response.data)
+    }
 }

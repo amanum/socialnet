@@ -15,7 +15,7 @@ const User = (props) => {
 					  <img src={props.profile.photos.large}
 							 alt=""/>
 				  </div>
-				  <UserInfo fullName={props.profile.fullName}/>
+				  <UserInfo fullName={props.profile.fullName} status={props.status} updateUserStatus={props.updateUserStatus}/>
 			  </div>
 	);
 }
