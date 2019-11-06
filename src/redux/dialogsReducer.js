@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
 let initialState = {
     contactsData: [
@@ -40,7 +39,6 @@ let initialState = {
             avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJbsBSPWYZK6exsVL86MJuEIOxkWAdAYdxiOCjBCDXq3u2f9RkAw",
         }
     ],
-    newMessageText: ""
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -50,19 +48,12 @@ const dialogsReducer = (state = initialState, action) => {
             let newMessage = {
                 id: state.messagesData.length + 1,
                 name: "Me",
-                message: state.newMessageText,
+                message: action.newMessageText,
                 avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJbsBSPWYZK6exsVL86MJuEIOxkWAdAYdxiOCjBCDXq3u2f9RkAw"
             }
             return {
                 ...state,
                 messagesData: [...state.messagesData, newMessage],
-                newMessageText: ''
-            }
-
-        case UPDATE_NEW_MESSAGE_TEXT:
-            return {
-                ...state,
-                newMessageText: action.newText
             }
 
         default:
@@ -70,7 +61,6 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessage = () => ({type: ADD_MESSAGE})
-export const onMessageChange = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+export const addMessage = (newMessageText) => ({type: ADD_MESSAGE, newMessageText})
 
 export default dialogsReducer

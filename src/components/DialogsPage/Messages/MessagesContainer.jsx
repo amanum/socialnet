@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     addMessage,
-    onMessageChange,
 } from "../../../redux/dialogsReducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
@@ -17,7 +16,6 @@ let mapStateToProps = (state) => {
 
 let dispatchObj = {
     addMessage,
-    onMessageChange
 }
 
 export default compose(

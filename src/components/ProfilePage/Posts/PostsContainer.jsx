@@ -1,7 +1,7 @@
 import React from 'react';
 import {
 	addLike,
-	addPost, updateNewPostText
+	addPost
 } from "../../../redux/profileReducer";
 import Posts from "./Posts";
 import {connect} from "react-redux";
@@ -14,7 +14,6 @@ const mapStateToProps = (state) => {
 }
 
 let dispatchObj = {
-	updateNewPostText,
 	addPost,
 	addLike
 }
