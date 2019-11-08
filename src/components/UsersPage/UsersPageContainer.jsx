@@ -60,6 +60,5 @@ let dispatchObj = {
 }
 
 export default compose(
-    withAuthRedirect,
     connect(mapStateToProps, dispatchObj)
 )(UsersPageContainer)

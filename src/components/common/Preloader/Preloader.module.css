@@ -1,5 +1,4 @@
 .preloaderWrapper {
-    width: 80%;
     height: calc(100vh - 94px);
     display: flex;
     justify-content: center;
