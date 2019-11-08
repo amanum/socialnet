@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/socialnet/static/css/main.e7a1bda5.chunk.css",
+    "main.js": "/socialnet/static/js/main.4bf57210.chunk.js",
+    "main.js.map": "/socialnet/static/js/main.4bf57210.chunk.js.map",
+    "runtime-main.js": "/socialnet/static/js/runtime-main.8a1de007.js",
+    "runtime-main.js.map": "/socialnet/static/js/runtime-main.8a1de007.js.map",
+    "static/js/2.f2c5b37e.chunk.js": "/socialnet/static/js/2.f2c5b37e.chunk.js",
+    "static/js/2.f2c5b37e.chunk.js.map": "/socialnet/static/js/2.f2c5b37e.chunk.js.map",
+    "index.html": "/socialnet/index.html",
+    "precache-manifest.c9b318f7a42f9e27ffe1222e076ee105.js": "/socialnet/precache-manifest.c9b318f7a42f9e27ffe1222e076ee105.js",
+    "service-worker.js": "/socialnet/service-worker.js",
+    "static/css/main.e7a1bda5.chunk.css.map": "/socialnet/static/css/main.e7a1bda5.chunk.css.map",
+    "static/media/Ripple-1s-200px.svg": "/socialnet/static/media/Ripple-1s-200px.e8272eca.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8a1de007.js",
+    "static/js/2.f2c5b37e.chunk.js",
+    "static/css/main.e7a1bda5.chunk.css",
+    "static/js/main.4bf57210.chunk.js"
+  ]
+}
