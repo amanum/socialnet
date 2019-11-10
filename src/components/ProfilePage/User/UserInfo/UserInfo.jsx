@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './UserInfo.module.css'
 import UserStatus from "./UserStatus/UserStatus";
+import UserStatusWithHooks from "./UserStatus/UserStatusWithHooks";
 
 const UserInfo = (props) => {
     return (
@@ -20,7 +21,8 @@ const UserInfo = (props) => {
             <div className={s.AppProfileUserInfoItem}>
                 WebSite: https://google.com
             </div>
-            <UserStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
+            {/*<UserStatus status={props.status} updateUserStatus={props.updateUserStatus}/>*/}
+            <UserStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
         </div>
     );
 }
