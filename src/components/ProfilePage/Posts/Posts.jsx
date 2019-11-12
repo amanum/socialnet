@@ -7,26 +7,27 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10)
 
-const Posts = (props) => {
-
-	let posts = props.postsData.map(p => <PostContainer key={p.id} text={p.text} likes={p.likes} id={p.id} addLike={props.addLike} />)
+const Posts = React.memo(props => {
+	console.log('render')
+	let posts = props.postsData.map(p => <PostContainer key={p.id} text={p.text} likes={p.likes} id={p.id}
+														addLike={props.addLike}/>)
 
 	let addPost = (values) => {
 		props.addPost(values.newPostText)
 	}
-	
+
 	return (
-			  <div className={s.AppProfilePosts}>
-				  <h2 className={s.AppProfilePostsTitle}>
-					  My Posts
-				  </h2>
-				  <AddNewPostsFormRedux onSubmit={addPost}/>
-				  <div className={s.AppProfilePostsList}>
-					  {posts}
-				  </div>
-			  </div>
+		<div className={s.AppProfilePosts}>
+			<h2 className={s.AppProfilePostsTitle}>
+				My Posts
+			</h2>
+			<AddNewPostsFormRedux onSubmit={addPost}/>
+			<div className={s.AppProfilePostsList}>
+				{posts}
+			</div>
+		</div>
 	);
-}
+});
 
 const AddNewPostsForm = (props) => {
 	return(
