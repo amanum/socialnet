@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE'
+const ADD_MESSAGE = 'samuraiNetwork/dialogsReducer/ADD-MESSAGE'
 
 let initialState = {
     contactsData: [

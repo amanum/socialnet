@@ -2,28 +2,6 @@
     padding: 20px;
     width: 80%;
 }
-.UsersPagePaggination {
-    display: flex;
-    margin-bottom: 20px;
-    overflow-y: scroll;
-}
-.UsersPagePagginationItem {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #3E4043;
-    font-size: 12px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-.sellectedPage {
-    font-weight: bold;
-    background: #3E4043;
-    border: 1px solid #272727;
-}
 .userItem {
     padding: 20px;
     background: #3D4043;

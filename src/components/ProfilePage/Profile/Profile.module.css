@@ -1,11 +1,11 @@
-.AppProfileUser {
+.AppProfilePageProfile {
   padding: 20px;
   display: flex;
   color: #ffffff;
   font-size: 20px;
 }
 
-.AppProfileUserAvatar {
+.AppProfilePageProfileAvatar {
   overflow: hidden;
   border-radius: 5px;
   min-width: 240px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import User from "./User/User";
+import Profile from "./Profile/Profile";
 import s from './ProfilePage.module.css'
 import PostsContainer from "./Posts/PostsContainer";
 
@@ -9,7 +9,7 @@ const ProfilePage  = (props) => {
 				  <div className={s.AppProfileImg}>
 					  <img src="https://free4kwallpapers.com/uploads/originals/2019/06/04/astronaut-x--wallpaper.jpg" alt=""/>
 				  </div>
-				  <User profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus}/>
+				  <Profile profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus}/>
 				  <PostsContainer/>
 			  </div>
 	);

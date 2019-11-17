@@ -1,9 +1,9 @@
 import {profileAPI, userAPI} from "../api/api";
 
-const ADD_POST = 'ADD-POST'
-const ADD_LIKE = 'ADD-LIKE'
-const SET_USER_PROFILE = 'SET_USER_PROFILE'
-const SET_STATUS = 'SET_STATUS'
+const ADD_POST = 'samuraiNetwork/profileReducer/ADD-POST'
+const ADD_LIKE = 'samuraiNetwork/profileReducer/ADD-LIKE'
+const SET_USER_PROFILE = 'samuraiNetwork/profileReducer/SET_USER_PROFILE'
+const SET_STATUS = 'samuraiNetwork/profileReducer/SET_STATUS'
 
 let initialState = {
     postsData: [
@@ -33,7 +33,7 @@ const profileReducer = (state = initialState, action) => {
             let stateCopy = {...state}
             let newLikesCount = action.likes + 1;
             stateCopy.postsData = [...state.postsData]
-            stateCopy.postsData.find(   p => p.id === action.id).likes = newLikesCount;
+            stateCopy.postsData.find(p => p.id === action.id).likes = newLikesCount;
             return stateCopy;
         }
         case SET_USER_PROFILE: {
@@ -52,27 +52,21 @@ export const addLike = (likesCount, id) => ({type: ADD_LIKE, likes: likesCount, 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setUserStatus = (status) => ({type: SET_STATUS, status});
 
-export const getUserProfile = (userId) => (dispatch) => {
-    userAPI.watchProfile(userId)
-        .then(data => {
-            dispatch(setUserProfile(data))
-        })
+export const getUserProfile = (userId) => async (dispatch) => {
+    let data = await userAPI.watchProfile(userId)
+    dispatch(setUserProfile(data))
 }
 
-export const getUserStatus = (userId) => (dispatch) => {
-    profileAPI.getUserStatus(userId)
-        .then(data => {
-            dispatch(setUserStatus(data))
-        })
+export const getUserStatus = (userId) => async (dispatch) => {
+    let data = await profileAPI.getUserStatus(userId)
+    dispatch(setUserStatus(data))
 }
 
-export const updateUserStatus = (status) => (dispatch) => {
-    profileAPI.updateUserStatus(status)
-        .then(data => {
-            if (data.resultCode === 0) {
-                dispatch(setUserStatus(status))
-            }
-        })
+export const updateUserStatus = (status) => async (dispatch) => {
+    let data = await profileAPI.updateUserStatus(status)
+    if (data.resultCode === 0) {
+        dispatch(setUserStatus(status))
+    }
 }
 
 export default profileReducer
