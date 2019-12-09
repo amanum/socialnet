@@ -13,7 +13,7 @@
     border: 1px solid #3E4043;
     font-size: 12px;
     cursor: pointer;
-    margin-right: 10px;
+    margin: 0 5px;
 }
 .sellectedPage {
     font-weight: bold;
