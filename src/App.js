@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
 import Sidebar from "./components/Sidebar/Sidebar";
-import DialogsPage from "./components/DialogsPage/DialogsPage";
+// import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter, Route, withRouter} from "react-router-dom";
 import UsersPageContainer from "./components/UsersPage/UsersPageContainer";
-import ProfilePageContainer from "./components/ProfilePage/ProfilePageContainer";
+// import ProfilePageContainer from "./components/ProfilePage/ProfilePageContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
@@ -12,6 +12,10 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+import {withSuspense} from "./hoc/withSuspense";
+
+const ProfilePageContainer = React.lazy(() => import ('./components/ProfilePage/ProfilePageContainer'))
+const DialogsPage = React.lazy(() => import ('./components/DialogsPage/DialogsPage'))
 
 class App extends Component {
 
@@ -29,9 +33,9 @@ class App extends Component {
             <div className="App">
                 <HeaderContainer/>
                 <Sidebar/>
-                <Route path="/profile/:userId?" render={() => <ProfilePageContainer/>}/>
-                <Route path="/dialogs" render={() => <DialogsPage/>}/>
-                <Route path="/users" render={() => <UsersPageContainer/>}/>
+                <Route path="/profile/:userId?" render={withSuspense(ProfilePageContainer)}/>
+                <Route path="/dialogs" render={withSuspense(DialogsPage)}/>
+                <Route path="/users" render={withSuspense(UsersPageContainer)}/>
                 <Route path="/login" render={() => <LoginPage/>}/>
             </div>
         );
